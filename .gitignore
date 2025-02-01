@@ -1,0 +1,49 @@
+# Ignore config
+.vs
+.vscode
+
+# Ignore build directory
+/build/
+
+# Ignore depends and examples directories
+depends/
+examples/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+*.cbp
+*.user
+*.workspace
+compile_commands.json
+Testing/
+CTestTestfile.cmake
+
+# Build artifacts
+/*.exe
+/*.dll
+/*.so
+/*.dylib
+/*.app
+/*.lib
+/*.a
+/*.exp
+/*.pdb
+/*.ilk
+/*.o
+/*.obj
+
+# IDE-specific files
+*.vcxproj*
+*.sln
+*.ninja
+*.ds_store
+*.vs/
+
+# Logs
+build.log
+CMakeOutput.log
+CMakeError.log
