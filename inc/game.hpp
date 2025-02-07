@@ -23,6 +23,8 @@ class Game
         void MoveAliens();
         void MoveDownAliens(int distance);
         void AlienShootLaser();
+        // Check collisions
+        void CheckForCollisions();
         // Spaceship member variables
         Spaceship spaceship;
         // Obstacles member variables
