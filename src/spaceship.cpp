@@ -3,11 +3,11 @@
 Spaceship::Spaceship()
 {
     // Load image or "texture" from graphics folder
-    image = LoadTexture("../graphics/spaceshipGame.png");
+    image = LoadTexture("../graphics/spaceship.png");
     // Place spaceship in the middle of screen in the x axis
-    position.x = (GetScreenWidth() - image.width)/2 + 70;
+    position.x = (GetScreenWidth() - image.width)/2;
     // Place spaceship at bottom of the screen
-    position.y = GetScreenHeight() - 60;
+    position.y = GetScreenHeight() - image.height;
     lastFireTime = 0;
 }
 
@@ -19,7 +19,7 @@ Spaceship::~Spaceship()
 void Spaceship::Draw()
 {
     // Draw spaceship img with 0.3 scaling (make it smaller)
-    DrawTextureEx(image, position, 0, 0.3, WHITE);
+    DrawTextureV(image, position, WHITE);
 }
 
 void Spaceship::MoveLeft()
@@ -49,8 +49,13 @@ void Spaceship::FireLaser()
     if(GetTime() - lastFireTime >= 0.25)
     {
         // Add new fired laser to "lasers" vector
-        lasers.push_back(Laser({this->position.x + 33, this->position.y}, -6));
+        lasers.push_back(Laser({this->position.x + image.width/2 - 2, this->position.y}, -6));
         lastFireTime = GetTime();
     }
 
+}
+
+Rectangle Spaceship::getRect()
+{
+    return {position.x, position.y, float(image.width), float(image.height)};
 }
